@@ -1,0 +1,19 @@
+Corroboration of three businesses (fact checked: street address of the selected location)
+Two independent publishers are used for each business. Disagreements: record "none" or describe.
+
+1. A&Y Global Market
+   Publisher 1 (Mizzou ISSS): https://international.missouri.edu/isss/living-in-columbia/daily-life/food-stores-near-campus/  -> observed: 400 Business Loop 70 W.
+   Publisher 2 (The Loop Como): https://theloopcomo.com/?business=ay-global-market  -> observed: [TEAM: copy the address shown on this page]
+   Disagreement: [TEAM: none / describe]
+
+2. Go-Fresco
+   Publisher 1 (Mizzou ISSS): URL as above  -> observed: 3605 S. Providence Road, Suite 6
+   Publisher 2 (FindGlocal): https://www.findglocal.com/US/Columbia/106459240804135/Go---Fresco  -> observed: [TEAM: copy the address shown]
+   Disagreement: [TEAM: none / describe]
+
+3. Sai Market
+   Publisher 1 (Mizzou ISSS): URL as above  -> observed: 2101 W Broadway
+   Publisher 2 (Chamber of Commerce): https://www.chamberofcommerce.com/business-directory/missouri/columbia/grocery-store/2015492491-sai-market?mc=true  -> observed: [TEAM: copy the address shown]
+   Disagreement: [TEAM: none / describe]
+
+Independence note: ISSS is a university page and the other three are separate organizations; we did not use two listings that copy one upstream source.

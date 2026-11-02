@@ -1,0 +1,26 @@
+1. Some of the raw addresses did not have the city/ state name as well as postal code in our raw csv, we added them manually in the final SQL database. Since all the the businesses were already from Columbia we just got the official ZIP code from USPS's zip code lookup tool.
+  Eg: Before: a) A&Y Global Market: 400 Business Loop 70 W.
+              b) African Market: 1004 Old 63 N. 
+              c) Go-Fresco: 3605 S. Providence Road, Suite 6 
+      After: a) A&Y Global Market: 400 Business Loop 70 W., Columbia, MO, 65201
+              b) African Market: 1004 Old 63 N., Columbia, MO, 65201
+              c) Go-Fresco: 3605 S. Providence Road, Suite 6, Columbia, MO, 65203 
+2. We mapped several services that were stated in the website and categorized all of them into 4 services in our rubric.
+  Eg: Before: a) A&Y Global Market : Fresh and packaged goods from the Mediterranean and Middle East
+              b) Go-Fresco : Fresh produce and products from Latin America
+              c) Sai Market: Grocery store offering Indian food items/
+      After: a) A&Y Global Market : Imported Packaged Groceries, In-store fresh food and deli counter
+             b) Go-Fresco: Imported Packaged Groceries
+             c) Sai Market: Imported Packaged Groceries
+
+All of the initially collected datas were added to the final counter, none were excluded.
+
+3. Raw-capture repair (data entry, not a data change): raw row 1 (A - Z Auto Repair) was missing its "source URL" field. We added the A-Z website URL, matching rows 2-8, and registered it as source 14.
+  Eg: Before: row 1 had 7 fields (no source URL).   After: row 1 has 8 fields, source URL = https://www.atozautorepaircolumbia.com/
+4. Raw row 10 (African Market) contains a Greek capital Nu ("Ν") instead of a Latin "N" in "Old 63 Ν." as copied from the ISSS page. The raw file keeps it unchanged; the database stores "Old 63 N" with a Latin N.
+  Eg: Before: 1004 Old 63 Ν.   After: 1004 Old 63 N, Columbia, MO, 65201
+
+Counts and duplicates:
+- Collected: 15 raw observations (8 automotive, 7 specialty markets). Final: 15 businesses. Excluded: 0 from this list (earlier candidates Marcy Motors, Phillippe and Yancey were dropped before collection was finalized).
+- Duplicate handling: each raw row is a different business name and street address, so no merges were needed. business_name and source URL are UNIQUE in the schema.
+- Offerings: 20 business-service pairs after mapping wording to our 4 service types. Norris exhaust (raw row 6, "Exhaust Systems and Mufflers") was added and Walts exhaust was removed because raw row 5 does not mention exhaust.

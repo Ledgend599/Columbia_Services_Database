@@ -1,0 +1,50 @@
+T1 Validation Log
+Expected: At least 15 businesses, 4 services, 2 categories,
+20 offerings, and 2 publishers, business and offering links being present and valid.
+
+Actual:
+Business Count: 15 		PASS
+Services: 4 				PASS
+Categories: 2 				PASS
+Offerings: 20 			PASS
+Publishers: 14 (distinct publisher names)	PASS
+Business source links: 		PASS
+Offering source links: 		PASS
+Result:					PASS
+
+T2 Validation Log
+Expected: The database rejects an INSERT into Business_Service that
+references a nonexistent business_id (999) through the foreign key constraint.
+
+Test SQL:
+INSERT INTO Business_Service (business_id, service_id, source_id, raw_row_id)
+VALUES (999, 1, 1, 9999);
+
+Actual:
+Error Code: 1452. Cannot add or update a child row:
+a foreign key constraint fails
+('columbia_services_db'.'business_service', CONSTRAINT 'business_service_ibfk_1'
+FOREIGN KEY ('business_id') REFERENCES 'business' ('business_id'))
+Result:				PASS
+
+T3 Validation Log
+Expected: The database rejects a duplicate INSERT into Business_Service
+with the same (business_id, service_id) pair through the composite primary key.
+
+Test SQL:
+INSERT INTO Business_Service (business_id, service_id, source_id, raw_row_id)
+VALUES (1, 1, 1, 8888);
+
+Actual:
+Error Code: 1062. Duplicate entry '1-1' for key 'business_service.PRIMARY'
+Result:				PASS
+
+T4 Validation Log
+Fixture: 2 temporary businesses (A: no website; B: has website), 2 services, 1 category, 1 source.
+Expected / Actual:
+Q3: Service A provider count, manual count 2   | query returned 2          PASS
+Q4: Business A has no offering for Service B   | returned ID 16            PASS
+Q5: Service A -> 16, Service B -> NULL         | 2 rows as expected        PASS
+Q6: Business A website is NULL                 | returned ID 16            PASS
+Cleanup: counts after fixture removal = 15 businesses, 4 services, 2 categories, 20 offerings   PASS
+Result: PASS
